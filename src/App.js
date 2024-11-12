@@ -24,6 +24,8 @@ function App() {
     const [isAuth, setIsAuth] = useState(false);
     const [userProfileInfo, setUserProfileInfo] = useState({})
 
+    const [collectdata, setCollectdata] = useState({})
+
 
     const handleGetUserData = useCallback( async (uid)=>{
         const docRef = doc(db, "regusers", uid) // vercnum enq hamapatasxan uid ov datan
@@ -50,7 +52,7 @@ function App() {
 
     return (
         <div className="App">
-            <ResumeContext.Provider value={{ isAuth, setIsAuth, userProfileInfo }}>
+            <ResumeContext.Provider value={{ isAuth, setIsAuth, userProfileInfo, collectdata, setCollectdata  }}>
                 <RouterProvider
 
                     router={
@@ -66,7 +68,7 @@ function App() {
 
                                 {/* Protected main page */}
                                 <Route path="/main" element={isAuth ? <MainPage /> : <Navigate to="/login" />} />
-                                <Route path="/main/builder" element={<Builder />} />
+                                <Route path="/main/builder" element={isAuth ? <Builder /> : <Navigate to="/login" />} />
 
                             </Route>
                         )
