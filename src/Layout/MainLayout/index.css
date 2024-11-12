@@ -1,0 +1,12 @@
+.mainlayout{
+    /*background-color: red;*/
+    /*border: 1px solid green;*/
+}
+
+main{
+    /*background-color: red;*/
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    height: 100vh;
+}
