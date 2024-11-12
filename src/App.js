@@ -19,9 +19,11 @@ import {doc, getDoc} from "firebase/firestore";
 import {db, auth} from "./service/firebase/firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import Builder from "./Pages/General";
+import Resume from "./Pages/Resume";
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [userProfileInfo, setUserProfileInfo] = useState({})
 
     const [collectdata, setCollectdata] = useState({})
@@ -52,7 +54,7 @@ function App() {
 
     return (
         <div className="App">
-            <ResumeContext.Provider value={{ isAuth, setIsAuth, userProfileInfo, collectdata, setCollectdata  }}>
+            <ResumeContext.Provider value={{ isAuth, setIsAuth, userProfileInfo, collectdata, setCollectdata , loading, setLoading }}>
                 <RouterProvider
 
                     router={
@@ -69,6 +71,7 @@ function App() {
                                 {/* Protected main page */}
                                 <Route path="/main" element={isAuth ? <MainPage /> : <Navigate to="/login" />} />
                                 <Route path="/main/builder" element={isAuth ? <Builder /> : <Navigate to="/login" />} />
+                                <Route path="/main/builder/resume" element={isAuth ? <Resume /> : <Navigate to="/login" />} />
 
                             </Route>
                         )

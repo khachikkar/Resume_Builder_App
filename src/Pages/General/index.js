@@ -4,13 +4,17 @@ import { Tabs, Button } from 'antd';
 import ProfileSection from "../../components/ProfileSection";
 import {ResumeContext} from "../../context";
 import EducationSection from "../../components/EducationSection";
+import SkillSection from "../../components/SkillSection";
+import ProjectSection from "../../components/ProjectSection";
+import SocialSection from "../../components/SocialSection";
+import {useNavigate} from "react-router-dom";
 
 const { TabPane } = Tabs;
 
 const Builder = () => {
     // Track the current active tab
     const [activeTabKey, setActiveTabKey] = useState("1");
-    const {collectdata} = useContext(ResumeContext);
+    const navigate = useNavigate()
 
 
     // Function to handle tab change from user input
@@ -36,7 +40,7 @@ const Builder = () => {
     };
 
 
-    console.log(collectdata, "YYY")
+    // console.table(collectdata, "YYY")
 
 
     return (
@@ -51,13 +55,13 @@ const Builder = () => {
                     <EducationSection />
                 </TabPane>
                 <TabPane tab="Skills Section" key="3">
-                    Content for Skills
+                   <SkillSection />
                 </TabPane>
                 <TabPane tab="Projects Section" key="4">
-                    Content for Projects
+                   <ProjectSection />
                 </TabPane>
                 <TabPane tab="Social Section" key="5">
-                    Content for Social
+                  <SocialSection />
                 </TabPane>
             </Tabs>
 
@@ -68,6 +72,7 @@ const Builder = () => {
                 <Button type="primary" onClick={handleNext} disabled={activeTabKey === "5"} style={{ marginLeft: "8px" }}>
                     Next
                 </Button>
+                <Button type="primary" onClick={()=>navigate("/main/builder/resume")} disabled={activeTabKey === "1"} >Finish</Button>
             </div>
         </div>
     );
