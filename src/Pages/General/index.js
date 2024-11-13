@@ -1,8 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import "./index.css";
 import { Tabs, Button } from 'antd';
 import ProfileSection from "../../components/ProfileSection";
-import {ResumeContext} from "../../context";
 import EducationSection from "../../components/EducationSection";
 import SkillSection from "../../components/SkillSection";
 import ProjectSection from "../../components/ProjectSection";

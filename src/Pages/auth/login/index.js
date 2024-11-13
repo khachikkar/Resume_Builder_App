@@ -3,7 +3,6 @@ import "./index.css"
 import {Form, Input, Button, Flex, notification} from "antd"
 import {Link, useNavigate} from "react-router-dom";
 
-import {ROUTE_CONSTANTS} from "../../../utils/constants/constants";
 import {signInWithEmailAndPassword} from "firebase/auth"
 import {auth} from "../../../service/firebase/firebase";
 import {ResumeContext} from "../../../context";

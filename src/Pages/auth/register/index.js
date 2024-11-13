@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Form, Flex, Button, Input} from "antd"
 import {Link, useNavigate} from "react-router-dom";
-import {ROUTE_CONSTANTS, passWalidation} from "../../../utils/constants/constants";
+import {passWalidation} from "../../../utils/constants/constants";
 import "./index.css"
 
 import {auth, db} from "../../../service/firebase/firebase";
@@ -13,7 +13,7 @@ const Register = ()=>{
 
 const [form]=Form.useForm()
 const navigate = useNavigate()
-const {setIsAuth, isAuth} = useContext(ResumeContext);
+const {isAuth} = useContext(ResumeContext);
 
 
 

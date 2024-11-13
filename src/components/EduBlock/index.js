@@ -1,6 +1,5 @@
 import {Input, Button} from "antd";
-import React, {useContext, useEffect, useState} from "react";
-import {ResumeContext} from "../../context";
+import React, {useState} from "react";
 import "./index.css"
 
 

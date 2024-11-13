@@ -1,4 +1,3 @@
-import EduBlock from "../EduBlock";
 import {Button} from "antd";
 import React, {useContext, useState} from "react";
 import {ResumeContext} from "../../context";
