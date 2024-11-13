@@ -1,0 +1,3 @@
+must add a functionality to store collected data on fireStore
+
+after it getData and set in ResumeTemplate Component
