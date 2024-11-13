@@ -1,0 +1,138 @@
+/* Main container styling */
+.resume-container {
+    font-family: Arial, sans-serif;
+    width: 800px;
+    /*width: 100%;*/
+    /*margin: auto;*/
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+
+
+/* Profile Section */
+.profile-section {
+    /*background-color: red;*/
+    display: grid;
+    border-bottom: 1px solid gray;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+    h2{
+        font-size: 40px;
+    }
+    img{
+        width: 200px;
+    }
+}
+.profile-section p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Education Section */
+.education-section {
+    margin-top: 20px;
+    /*background-color: red;*/
+
+    h3{
+        font-size: 30px;
+        margin: 0px;
+    }
+}
+.edublocks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.education-item {
+    /*background-color: blue;*/
+    margin-bottom: 10px;
+    border: 0.5px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Skills Section */
+.skills-section {
+    /*background-color: red;*/
+    margin-top: 20px;
+    h3{
+        font-size: 30px;
+        margin: 0px;
+    }
+}
+.skills-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    /*padding-left: 20px;*/
+    padding: 0;
+}
+.skills-section li {
+    /*margin: 5px 0;*/
+    background-color: #09346c;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
+
+
+/* Projects Section */
+.projects-section {
+    /*background-color: red;*/
+    margin-top: 20px;
+
+    h3{
+        font-size: 30px;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
+.project-item {
+    margin-bottom: 10px;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.project-item span {
+    font-size: 24px;
+}
+
+.project-item p {
+  word-break: break-word;
+}
+
+
+.project-item a {
+    color: #09346c;
+    text-decoration: none;
+}
+.project-item a:hover {
+    text-decoration: underline;
+}
+
+/* Social Section */
+.social-section {
+    /*background-color: red;*/
+    margin-top: 20px;
+    h3{
+        font-size: 30px;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+.social-items{
+    display: flex;
+    gap: 20px;
+}
+
+strong{
+    color: darkslategray;
+}
