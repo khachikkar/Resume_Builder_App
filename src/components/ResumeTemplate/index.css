@@ -15,15 +15,21 @@
 /* Profile Section */
 .profile-section {
     /*background-color: red;*/
-    display: grid;
+    /*display: grid;*/
+    display: flex;
+    flex-direction: row;
     border-bottom: 1px solid gray;
-    grid-template-columns: 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr;*/
     margin-bottom: 20px;
     h2{
         font-size: 40px;
     }
+}
+.iig{
+    width: 221px;
+
     img{
-        width: 200px;
+        width: 100%;
     }
 }
 .profile-section p {
@@ -131,6 +137,14 @@
 .social-items{
     display: flex;
     gap: 20px;
+}
+
+.social-section a {
+    color: #09346c;
+    text-decoration: none;
+}
+.social-section a:hover {
+    text-decoration: underline;
 }
 
 strong{

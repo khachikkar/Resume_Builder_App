@@ -6,7 +6,7 @@ import ResumeTemplate from "../../components/ResumeTemplate";
 
 const Resume = () => {
 
-    const {collectdata, setLoading, loading} = useContext(ResumeContext);
+    const {collectdata, setLoading, loading, } = useContext(ResumeContext);
 
     useEffect(() => {
  const timer = setTimeout(() => {

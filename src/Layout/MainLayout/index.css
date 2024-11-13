@@ -1,6 +1,10 @@
 .mainlayout{
-    /*background-color: red;*/
-    /*border: 1px solid green;*/
+background-color: #d7f1d8;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
 }
 
 main{
@@ -10,4 +14,5 @@ main{
     justify-content: center;
     /*align-items: center;*/
     height: 100vh;
+    /*margin-bottom: 20vh;*/
 }

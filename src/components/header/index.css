@@ -1,9 +1,12 @@
 .header{
-    background-color: greenyellow;
+    background-color: #4CAF50;
     height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
+}
+h2{
+    cursor: pointer;
 }

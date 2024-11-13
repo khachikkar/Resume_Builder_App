@@ -24,6 +24,7 @@ try{
     await signInWithEmailAndPassword(auth, email, password);
     form.resetFields();
     setIsAuth(true)
+    navigate("/main")
 
 }catch (e){
     notification.error({

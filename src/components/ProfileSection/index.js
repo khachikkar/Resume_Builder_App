@@ -23,8 +23,9 @@ const [address, setAddress] = useState("")
 
 
     return (
-        <div className="profile-section">
+        <div className="profile-sectionn">
             <Input
+
                 onChange={(e) => setName(e.target.value)}
                 type="text"
                 placeholder="Name"
