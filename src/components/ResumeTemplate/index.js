@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useEffect, useState} from 'react';
+import React, { useRef} from 'react';
 import './index.css'; // Import the CSS file for styling
 import { jsPDF } from 'jspdf';
 import {Button} from "antd";

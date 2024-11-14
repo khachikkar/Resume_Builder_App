@@ -16,7 +16,7 @@ import MainLayout from "./Layout/MainLayout";
 import MainPage from "./Pages/main";
 import { ResumeContext } from "./context";
 import { useState, useEffect, useCallback } from "react";
-import {doc, getDoc, updateDoc} from "firebase/firestore";
+import {doc, getDoc} from "firebase/firestore";
 import { db, auth } from "./service/firebase/firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import Builder from "./Pages/General";

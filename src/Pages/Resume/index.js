@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import {ResumeContext} from "../../context";
 import {Spin} from "antd";
 import ResumeTemplate from "../../components/ResumeTemplate";
@@ -7,7 +7,7 @@ import ResumeTemplate from "../../components/ResumeTemplate";
 const Resume = () => {
 
 
-    const {dataloading, setDataloading, userProfileInfo, handleGetUserData} = useContext(ResumeContext);
+    const {dataloading, setDataloading, userProfileInfo} = useContext(ResumeContext);
 
 
     console.log(dataloading, "llllliiii");

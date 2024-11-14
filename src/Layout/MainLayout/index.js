@@ -2,7 +2,6 @@ import React from 'react';
 import {Outlet} from "react-router-dom";
 import MHeader from "../../components/header";
 import "./index.css"
-import Footer from "../../components/Footer";
 
 const MainLayout = () => {
     return (
@@ -11,7 +10,6 @@ const MainLayout = () => {
             <main>
                 <Outlet />
             </main>
-            {/*<Footer />*/}
         </div>
     )
 }

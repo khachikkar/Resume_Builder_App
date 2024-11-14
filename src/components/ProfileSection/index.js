@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {Input, Button, Upload, Form} from "antd";
+import {Input} from "antd";
 import { ResumeContext } from "../../context";
 import "./index.css";
 
