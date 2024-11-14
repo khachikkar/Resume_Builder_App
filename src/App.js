@@ -16,7 +16,7 @@ import MainLayout from "./Layout/MainLayout";
 import MainPage from "./Pages/main";
 import { ResumeContext } from "./context";
 import { useState, useEffect, useCallback } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import {doc, getDoc, updateDoc} from "firebase/firestore";
 import { db, auth } from "./service/firebase/firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import Builder from "./Pages/General";
@@ -34,6 +34,7 @@ function App() {
 
     const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true); // Initial loading state for app loading
+    const [dataloading, setDataloading] = useState(true);
     const [userProfileInfo, setUserProfileInfo] = useState({});
     const [collectdata, setCollectdata] = useState({});
 
@@ -45,6 +46,8 @@ function App() {
         return localStorage.getItem("lastVisitedRoute") || "/";
     };
     // Fetch user data from Firestore when user is authenticated
+
+
     const handleGetUserData = useCallback(async (uid) => {
         try {
             const docRef = doc(db, "regusers", uid);
@@ -56,6 +59,8 @@ function App() {
             console.error("Error fetching user data:", error);
         }
     }, []);
+
+
     useEffect(() => {
         // Listen to authentication state changes
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -91,10 +96,14 @@ function App() {
 
 
 
+
+
+
+
     return (
         <ConfigProvider theme={theme}>
         <div className="App">
-            <ResumeContext.Provider value={{ isAuth, setIsAuth, userProfileInfo, collectdata, setCollectdata, loading, setLoading }}>
+            <ResumeContext.Provider value={{ isAuth, setIsAuth, userProfileInfo, collectdata, setCollectdata, loading, setLoading, handleGetUserData, dataloading, setDataloading  }}>
                 <RouterProvider
                     router={createBrowserRouter(
                         createRoutesFromElements(

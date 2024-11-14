@@ -1,14 +1,10 @@
 import {Button} from "antd";
 import {Link} from "react-router-dom";
-import {useContext} from "react";
-import {ResumeContext} from "../../context";
+
 
 
 const MainPage = () => {
 
-    const {isAuth} = useContext(ResumeContext)
-
- console.log(isAuth, "TT");
 
 
     return (
@@ -18,6 +14,13 @@ const MainPage = () => {
                     Start to Build
                 </Button>
             </Link>
+
+<Link to="/main/builder/resume">
+    <Button>
+        My Resume
+    </Button>
+</Link>
+
 
         </div>
     )

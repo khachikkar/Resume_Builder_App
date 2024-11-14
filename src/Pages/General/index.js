@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import "./index.css";
-import { Tabs, Button } from 'antd';
+import {Tabs, Button, Flex} from 'antd';
 import ProfileSection from "../../components/ProfileSection";
 import EducationSection from "../../components/EducationSection";
 import SkillSection from "../../components/SkillSection";
@@ -8,12 +8,24 @@ import ProjectSection from "../../components/ProjectSection";
 import SocialSection from "../../components/SocialSection";
 import {useNavigate} from "react-router-dom";
 
+import {db} from "../../service/firebase/firebase";
+import {doc, updateDoc} from "firebase/firestore";
+import {ResumeContext} from "../../context";
+
+
 const { TabPane } = Tabs;
+
+
+
 
 const Builder = () => {
     // Track the current active tab
     const [activeTabKey, setActiveTabKey] = useState("1");
     const navigate = useNavigate()
+    const {userProfileInfo:{uid}, collectdata, loading} = useContext(ResumeContext)
+
+
+    console.log(loading, "IIII")
 
 
     // Function to handle tab change from user input
@@ -39,7 +51,19 @@ const Builder = () => {
     };
 
 
+
+
     // console.table(collectdata, "YYY")
+    const handleDataStore = async() =>{
+        try{
+            const userDocRef = doc(db, "regusers", uid)
+            await updateDoc(userDocRef, collectdata);
+            navigate("/main/builder/resume")
+        }catch(e){
+            console.log(e)
+        }
+    }
+
 
 
     return (
@@ -64,15 +88,15 @@ const Builder = () => {
                 </TabPane>
             </Tabs>
 
-            <div style={{ marginTop: "16px" }}>
+            <Flex gap="small" style={{ marginTop: "16px" }}>
                 <Button onClick={handleBack} disabled={activeTabKey === "1"}>
                     Back
                 </Button>
                 <Button type="primary" onClick={handleNext} disabled={activeTabKey === "5"} style={{ marginLeft: "8px" }}>
                     Next
                 </Button>
-                <Button type="primary" onClick={()=>navigate("/main/builder/resume")} disabled={activeTabKey === "1"} >Finish</Button>
-            </div>
+                <Button type="primary" onClick={handleDataStore} disabled={activeTabKey === "1"} >Finish</Button>
+            </Flex>
         </div>
     );
 }

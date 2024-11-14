@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {ResumeContext} from "../../context";
 import {Spin} from "antd";
 import ResumeTemplate from "../../components/ResumeTemplate";
@@ -6,28 +6,21 @@ import ResumeTemplate from "../../components/ResumeTemplate";
 
 const Resume = () => {
 
-    const {collectdata, setLoading, loading, } = useContext(ResumeContext);
 
-    useEffect(() => {
- const timer = setTimeout(() => {
-            setLoading(false); // Set loading to false after 3 seconds
-        }, 3000);
+    const {dataloading, setDataloading, userProfileInfo, handleGetUserData} = useContext(ResumeContext);
 
-        // Clear the timeout if the component unmounts
-        return () => clearTimeout(timer);
-    }, [setLoading]);
+
+    console.log(dataloading, "llllliiii");
+setDataloading(false)
 
 
 
-
-
-    console.log(collectdata)
 
     return (
         <div>
 
             {
-                loading ? <Spin /> : <ResumeTemplate data={collectdata} />
+                dataloading ? <Spin /> : <ResumeTemplate userProfileInfo={userProfileInfo} />
             }
 
         </div>

@@ -37,7 +37,7 @@ const EducationSection = () => {
             {eduBlocks.map((_, index) => (
                 <EduBlock key={index} onSave={handleSave} />
             ))}
-            <Button onClick={addEduBlock}>Add Edu</Button>
+            <Button style={{width:"110px"}} onClick={addEduBlock}>Add Edu</Button>
         </div>
     )
 }

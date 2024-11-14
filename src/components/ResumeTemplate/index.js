@@ -1,13 +1,28 @@
-import React, {useContext, useRef} from 'react';
+import React, {useContext, useRef, useEffect, useState} from 'react';
 import './index.css'; // Import the CSS file for styling
 import { jsPDF } from 'jspdf';
 import {Button} from "antd";
-import {ResumeContext} from "../../context";
 
 
-const ResumeTemplate = ({data}) => {
-    const { profile, education, skills, projects, social } = data;
-    const {userProfileInfo:{email, name, lastname} } = useContext(ResumeContext);
+
+const ResumeTemplate = ({userProfileInfo}) => {
+
+
+
+
+
+
+
+/// destructuring ////
+
+
+
+    const {name, lastname, email, profile, education, projects, skills, social} = userProfileInfo || {}
+
+
+
+
+
 
 
 
@@ -21,10 +36,13 @@ const ResumeTemplate = ({data}) => {
             },
             x: 10,
             y: 10,
-            html2canvas: { scale: 0.23 }, // Adjust scale if needed
+            html2canvas: { scale: 0.22 }, // Adjust scale if needed
             width: 190, // Width of the PDF content
         });
     };
+
+
+
 
     return (
         <div>
@@ -33,13 +51,13 @@ const ResumeTemplate = ({data}) => {
                 {/* Profile Section */}
                 <div className="profile-section">
                     <div className="iig">
-                        <img src="https://cdn-icons-png.flaticon.com/512/9203/9203764.png" alt="Profile" />
+                        <img src={profile?.imageUrl || "https://cdn-icons-png.flaticon.com/512/9203/9203764.png"} alt="Profile" />
                     </div>
                     <div>
-                        <h2>{profile.name || name} {profile.lastname || lastname}</h2>
+                        <h2>{profile?.resumeName || name} {profile?.resumeLastName || lastname}</h2>
                         <p><b>Email:</b> {email}</p>
-                        <p><b>Address:</b> "{profile?.address}"</p>
-                        <p><b>Phone:</b> {profile?.phone}</p>
+                        <p><b>Address:</b> {profile?.address || "" }</p>
+                        <p><b>Phone:</b> {profile?.phone || "none"}</p>
                     </div>
                 </div>
 

@@ -1,88 +1,67 @@
-import React, {useContext, useEffect, useState} from "react";
-import {Input, Button, Upload} from "antd";
-import {ResumeContext} from "../../context";
-import { UploadOutlined } from '@ant-design/icons';
-import "./index.css"
+import React, { useContext, useEffect, useState } from "react";
+import {Input, Button, Upload, Form} from "antd";
+import { ResumeContext } from "../../context";
+import "./index.css";
+
 
 
 const ProfileSection = () => {
+    const { setCollectdata } = useContext(ResumeContext);
 
-const {setCollectdata} = useContext(ResumeContext)
+    // Form fields state
+    const [resumeName, setResumeName] = useState("");
+    const [resumeLastName, setResumeLastname] = useState("");
+    const [phone, setPhone] = useState(0);
+    const [address, setAddress] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
-const [name, setName] = useState("")
-const [lastname, setLastname] = useState("")
-const [phone, setPhone] = useState(0)
-const [address, setAddress] = useState("")
-const [imageUrl, setImageUrl] = useState(null);
-
+    // Update context when any profile field changes
     useEffect(() => {
         setCollectdata((prevData) => ({
             ...prevData,
-            profile: { name, lastname, phone, address },
+            profile: { resumeName, resumeLastName, phone, address, imageUrl },
         }));
-    }, [name, lastname, phone, address, setCollectdata]);
+    }, [resumeName, resumeLastName, phone, address, imageUrl, setCollectdata]);
 
-
-    const handleUploadChange = (info) => {
-        console.log(info)
-        // Only proceed if a file is uploaded
-        if (info.file.status === 'done') {
-            // Create a new FileReader instance
-            const reader = new FileReader();
-
-            // Read the uploaded file as a Data URL
-            reader.onload = () => {
-                // Set the result (data URL) as the image URL
-                setImageUrl(reader.result);
-                console.log('Image URL:', reader.result); // Logs the Data URL to console
-            };
-
-            // Start reading the file as a Data URL
-            reader.readAsDataURL(info.file.originFileObj);
-        }
-    };
-
+    // Handle image upload
 
 
     return (
         <div className="profile-sectionn">
             <Input
-
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setResumeName(e.target.value)}
                 type="text"
                 placeholder="Name"
-                style={{fontSize: "16px"}}
+                style={{ fontSize: "16px" }}
             />
             <Input
-                onChange={(e) => setLastname(e.target.value)}
+                onChange={(e) => setResumeLastname(e.target.value)}
                 type="text"
                 placeholder="Last name"
-                style={{fontSize: "16px"}}
+                style={{ fontSize: "16px" }}
             />
             <Input
                 onChange={(e) => setPhone(e.target.value)}
                 type="number"
                 placeholder="Phone Number"
-                style={{fontSize: "16px"}}
+                style={{ fontSize: "16px" }}
             />
             <Input
                 onChange={(e) => setAddress(e.target.value)}
                 type="text"
                 placeholder="Address"
-                style={{fontSize: "16px"}}
+                style={{ fontSize: "16px" }}
             />
-            <Upload
-                action="http://localhost:3001/main/builder"  // Specify the correct endpoint URL
-                showUploadList={false}
-                onChange={handleUploadChange}
-                onError={(error) => {
-                    console.error('Upload error:', error);
-                }} >
-                <Button icon={<UploadOutlined />}>Click to Upload</Button>
-            </Upload>
-            <img src={imageUrl} />
+            <Input
+                onChange={(e) => setImageUrl(e.target.value)}
+                type="text"
+                placeholder="Profile Image URL"
+                style={{ fontSize: "16px" }}
+            />
+
+
         </div>
-    )
-}
+    );
+};
 
 export default ProfileSection;

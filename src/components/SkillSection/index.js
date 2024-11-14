@@ -23,7 +23,7 @@ console.log(skills, "my skills");
 
 
     return (
-        <div className="skillSection">
+        <div style={{width:"500px"}} className="skillSection">
             <Select
                 mode="tags"
                 size="middle"
